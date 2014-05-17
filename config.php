@@ -1,2 +1,6 @@
+<?php
+
 $Title = "PHP Bootstrap";
-$Description = "Starter kit for PHP";
+$MetaDescription = "Starter kit for PHP";
+
+?>
