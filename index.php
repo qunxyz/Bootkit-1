@@ -18,23 +18,27 @@
 		});
 	</script>
 
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/vendor/bootstrap-3.1.1.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
-
 </head>
 <body>
-	<header>
-		<h1>Bootkit</h1>
-		<nav>
-			<ul>
-				<li>Kontakt</li>
-				<li>Team</li>
-				<li>Impressum</li>
-			</ul>
-		</nav>
+	<header id="header">
+		<div class="container">
+			<h1>PHP Bootstrap</h1>
+			<nav>
+				<ul>
+					<li>Kontakt</li>
+					<li>Team</li>
+					<li>Impressum</li>
+				</ul>
+			</nav>
+		</div>
 	</header>
-	<main>
-		<h1>Bootkit</h1>
+	<main id="main-wrapper">
+		<div class="container">
+			<h1>PHP Bootstrap</h1>
+		</div>
 	</main>
 	<footer></footer>
 	<script type="text/javascript" src="assets/javascripts/libraries/test.js"></script>
