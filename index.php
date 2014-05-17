@@ -1,3 +1,7 @@
+<?php $router = new Router($_GET["page"] || "");
+	  $router->init();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
