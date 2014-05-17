@@ -1,8 +1,12 @@
-<?php class Router {
+<?php 
 
-	$Page = "";
+require("pages/layouts/_class.php");
 
-	void __construct($_Page) {
+class Router {
+
+	private $Page = "";
+
+	function __construct($_Page) {
 		$this->Page = $_Page;
 	}
 
@@ -14,7 +18,8 @@
 				break;
 			
 			default:
-				# code...
+				$view = new Layout("default", "404");
+				$view->render();
 				break;
 		}
 	}
