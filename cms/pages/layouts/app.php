@@ -21,22 +21,27 @@
 
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/vendor/bootstrap-3.1.1.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/app/sidebar.css">
 </head>
 <body>
-	<header id="header">
-		<div class="container">
-			<h1><a href="/">PHP Bootstrap</a></h1>
-			<nav>
+	<aside id="sidebar">
+		<nav class="sidebar-container">
+			<div class="sidebar-profile">
+				<div class="profile-image"></div>
+
+
+			</div>
+			<footer>
 				<ul>
-					<li><a href="/?page=login">Login</a></li>
-					<li>Kontakt</li>
-					<li>Team</li>
-					<li>Impressum</li>
+					<li><a href="/?page=logout">Logout</a></li>
 				</ul>
-			</nav>
-		</div>
+			</footer
+		</nav>
+	</aside>
+	<header id="topbar">
+		<ul><li><a href="">Neu</a></li></ul>
 	</header>
+	<main></main>
 	<?php Layout::theContent($this->Content); ?>
 	<footer></footer>
 	<script type="text/javascript" src="assets/javascripts/libraries/test.js"></script>

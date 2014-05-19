@@ -29,6 +29,8 @@
         $.post("cms/login.php", {
           Email:  $("#email").val(),
           Passwd: $("#passwd").val()
+        }, function() {
+          window.location = "/?view=app";
         });
       } else {
         alert("Bitte ausfüllen!");

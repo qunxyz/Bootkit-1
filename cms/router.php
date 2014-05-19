@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 require("pages/layouts/_class.php");
 
 class Router {
@@ -13,13 +15,29 @@ class Router {
 	public function init() {
 		switch ($this->Page) {
 			case "":
-				$view = new Layout("default", "home");
+				if(isset($_SESSION["Uid"])) {
+					$view = new Layout("app", "app");
+					$view->render();
+					break;
+				} else {
+					$view = new Layout("default", "home");
+					$view->render();
+					break;
+				}
+
+			case "app":
+				$view = new Layout("app", "app");
 				$view->render();
 				break;
 
 			case "login":
 				$view = new Layout("default", "login");
 				$view->render();
+				break;
+
+			case "logout":
+				session_destroy();
+				header("location: /"); 
 				break;
 			
 			default:
