@@ -1,6 +1,50 @@
 require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 
-	var NewIdeaView = Backbone.View.extend({
+	var Idea = Backbone.Model.extend({ 
+		urlRoot: "/app/api/idea.php",
+		url: function() {
+	        var base = this.urlRoot || (this.collection && this.collection.url) || "/";
+	        if (this.isNew()) return base;
+	        return base + "?id=" + encodeURIComponent(this.id);
+	    },
+		defaults: {
+		    "Title":       "",
+		    "Description": ""
+		}
+	});
+
+	var Workspace = Backbone.Model.extend({ 
+		urlRoot: "/app/api/ideas.php",
+		url: function() {
+	        var base = this.urlRoot || (this.collection && this.collection.url) || "/";
+	        if (this.isNew()) return base;
+	        return base + "?id=" + encodeURIComponent(this.id);
+	    },
+		defaults: {
+		    "Title":       "",
+		    "Description": ""
+		}
+	});
+
+	var WorkspacePageView = Backbone.View.extend({
+		el: "#template-wrapper",
+		render: function(options) {
+			var that = this;
+			var workspace = new Workspace({id: 1});
+			workspace.fetch({
+				success: function(Json) {
+					Json = Json.toJSON();
+					document.title = "Neue Idee erstellen";
+					var template = _.template($("#workspace-template").html(), {
+						Ideas: Json.Ideas
+					});
+					that.$el.html(template);
+				}
+			});
+		}
+	});
+
+	var NewIdeaPageView = Backbone.View.extend({
 		el: "#template-wrapper",
 		render: function() {
 			var that = this;
@@ -13,17 +57,20 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 		}
 	});
 
-	var newideaview 	   = new NewIdeaView();
+	var newideapageview 	   = new NewIdeaPageView();
+	var workspacepageview      = new WorkspacePageView();
 
 	var Router = Backbone.Router.extend({
 	    routes: {
 	        "idea/new": "newIdea",
+	        "workspace/:wid": "workspace"
 	    }
 	});
 
 	var router = new Router;
 
-	router.on("route:newIdea",  function() { newideaview.render(); });
+	router.on("route:newIdea",    function() { newideapageview.render(); });
+	router.on("route:workspace",  function(wid) { workspacepageview.render({wid: wid}); });
 
 	Backbone.history.start();
 
