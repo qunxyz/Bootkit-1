@@ -1,0 +1,24 @@
+#new-idea-wrapper {
+
+}
+
+#new-idea-wrapper #new-idea-title {
+	width: 100%;
+	border: solid 2px #ddd;
+	padding: 10px 12px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+
+#new-idea-wrapper #new-idea-description {
+	width: 100%;
+	resize: vertical;
+	height: 300px;
+	border: solid 2px #ddd;
+	padding: 10px 12px;
+	border-radius: 5px;
+}
+
+#new-idea-wrapper header {
+	margin-bottom: 25px;
+}

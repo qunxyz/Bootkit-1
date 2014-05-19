@@ -1,0 +1,10 @@
+body {
+	font-family: "Open Sans";
+	font-size: 14px;
+}
+
+#template-wrapper {
+	width: 1000px;
+	padding-left: 300px;
+	margin: 0 auto;
+}
