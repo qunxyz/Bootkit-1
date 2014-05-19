@@ -16,6 +16,11 @@ class Router {
 				$view = new Layout("default", "home");
 				$view->render();
 				break;
+
+			case "login":
+				$view = new Layout("default", "login");
+				$view->render();
+				break;
 			
 			default:
 				$view = new Layout("default", "404");
