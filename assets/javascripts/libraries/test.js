@@ -1,5 +1,22 @@
 require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 
+	function readCookie(name) {
+	    var nameEQ = name + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0;i < ca.length;i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	    }
+	    return null;
+	}
+
+	var CSRF = readCookie("X-CSRF-Token");
+	$.ajaxSetup({ cache: false });
+	$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+		jqXHR.setRequestHeader('X-CSRF-Token', CSRF);
+	});
+
 	var Idea = Backbone.Model.extend({ 
 		urlRoot: "/app/api/idea.php",
 		url: function() {
@@ -14,7 +31,7 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 	});
 
 	var Workspace = Backbone.Model.extend({ 
-		urlRoot: "/app/api/ideas.php",
+		urlRoot: "/app/api/workspace.php",
 		url: function() {
 	        var base = this.urlRoot || (this.collection && this.collection.url) || "/";
 	        if (this.isNew()) return base;
