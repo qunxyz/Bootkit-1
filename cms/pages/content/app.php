@@ -1,3 +1,7 @@
+<?php if(!isset($_COOKIE["X-CSRF-Token"])) 
+		setcookie("X-CSRF-Token", Security::generateCSRFToken()); 
+?>
+
 <div id="templates">
 
 

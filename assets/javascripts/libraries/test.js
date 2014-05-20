@@ -53,7 +53,8 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 					Json = Json.toJSON();
 					document.title = "Neue Idee erstellen";
 					var template = _.template($("#workspace-template").html(), {
-						Ideas: Json.Ideas
+						Ideas: Json.Ideas,
+						Workspace: Json.Workspace
 					});
 					that.$el.html(template);
 				}
