@@ -35,6 +35,11 @@ class Router {
 				$view->render();
 				break;
 
+			case "embed":
+				$view = new Layout("embed", "embed");
+				$view->render();
+				break;
+
 			case "logout":
 				session_destroy();
 				header("location: /"); 
