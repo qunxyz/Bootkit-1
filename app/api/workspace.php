@@ -1,19 +1,16 @@
 <?php
 
+require("../../config.php");
+require("../../cms/objects/idea.php");
+require("../../cms/objects/workspace.php");
+
 if ($_SERVER['REQUEST_METHOD'] === "GET") {
-		
-	$Ideas = array(
-		array("Title" => "Lorem ipsum", "Description" => "Lorem ipsum"),
-		array("Title" => "Lorem ipsum", "Description" => "Lorem ipsum"),
-		array("Title" => "Lorem ipsum", "Description" => "Lorem ipsum"),
-		array("Title" => "Lorem ipsum", "Description" => "Lorem ipsum"),
-		array("Title" => "Lorem ipsum", "Description" => "Lorem ipsum")
-	);
-	echo json_encode(
-		array("Ideas" => $Ideas,
-			  "Workspace" => array("Title" => "Workspace")
-	    )
-	);
+
+	$workspace = new Workspace(1);
+	echo json_encode(array(
+		"Ideas" => $workspace->getIdeas(),
+		"Workspace" => array("Title" => "asd")
+	));
 }
 
 ?>
