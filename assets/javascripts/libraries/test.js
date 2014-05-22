@@ -62,6 +62,23 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 		}
 	});
 
+	var IdeaPageView = Backbone.View.extend({
+		el: "#template-wrapper",
+		render: function(options) {
+			var that = this;
+			var idea = new Idea({id: options.iid});
+			idea.fetch({
+				success: function(Json) {
+					Json = Json.toJSON();
+					var template = _.template($("#idea-template").html(), {
+						Idea: Json
+					});
+					that.$el.html(template);
+				}
+			});
+		}
+	});
+
 	var NewIdeaPageView = Backbone.View.extend({
 		el: "#template-wrapper",
 		render: function() {
@@ -71,16 +88,30 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 			that.$el.html(template);
 		},
 		events: {
-
+			"click #new-idea-save": "saveNewIdea"
+		},
+		saveNewIdea: function() {
+			var idea = new Idea();
+			idea.save({
+				Title:       $("#new-idea-title").val(),
+				Description: $("#new-idea-description").val()
+			}, {
+				success: function(data) {
+					data = data.toJSON();
+					window.location = "#/idea/" + data.InsertId;
+				}
+			});
 		}
 	});
 
 	var newideapageview 	   = new NewIdeaPageView();
+	var ideapageview 		   = new IdeaPageView();
 	var workspacepageview      = new WorkspacePageView();
 
 	var Router = Backbone.Router.extend({
 	    routes: {
 	        "idea/new": "newIdea",
+	        "idea/:iid": "idea",
 	        "workspace/:wid": "workspace"
 	    }
 	});
@@ -89,6 +120,7 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 
 	router.on("route:newIdea",    function() { newideapageview.render(); });
 	router.on("route:workspace",  function(wid) { workspacepageview.render({wid: wid}); });
+	router.on("route:idea",  function(iid) { ideapageview.render({iid: iid}); });
 
 	Backbone.history.start();
 

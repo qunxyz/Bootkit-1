@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/app/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/buttons.css">
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/app/new-idea.css">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/app/idea.css">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/app/workspace.css">
 
 	<?php Layout::theHead(); ?>
 </head>

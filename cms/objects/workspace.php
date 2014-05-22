@@ -9,7 +9,7 @@ class Workspace {
 
 	function getIdeas() {
 
-		$Sql = mysql_query("SELECT id, title, description FROM ideas") or die(mysql_error());
+		$Sql = mysql_query("SELECT id, title, description FROM ideas ORDER BY created_at DESC") or die(mysql_error());
 
 		while($Row = mysql_fetch_array($Sql))
 			$RowArray[] = $Row;

@@ -1,0 +1,21 @@
+#idea-wrapper .title {
+	margin: 0px 0px 10px 0px;
+	font-size: 24px;
+}
+
+#idea-wrapper .description {
+
+}
+
+#comment-wrapper .new-comment {
+	margin-top: 10px;
+	background: #fff;
+	padding: 20px;
+}
+
+#comment-wrapper .new-comment textarea {
+	width: 100%;
+	height: 50px;
+	border: solid 2px #ddd;
+	resize: none;
+}

@@ -1,7 +1,7 @@
 <div id="new-idea-wrapper">
 	<header>
 		<div style="float: right;">
-			<button class="button button-primary">Speichern</button>
+			<button class="button button-primary" id="new-idea-save">Speichern</button>
 			<button class="button">Verwerfen</button>
 		</div>
 		<h1 class="template-title">Neue Idee</h1>
