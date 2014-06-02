@@ -1,5 +1,22 @@
-require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
+function parseDatetime() {
+	var now = moment();
+    $("time").each(function() {
+        var time = moment($(this).attr("datetime"));
+        if(now.diff(time, 'days') <= 1)
+            $(this).html(time.from(now));
+        else $(this).html(time.format('L'));
+    });
+}
+function parseDatetime(Datetime) {
+	var now = moment();
+    var time = moment(Datetime);
+    if(now.diff(time, 'days') <= 1)
+        return time.from(now);
+    else return time.format('L');
+}
 
+require(["underscore", "jquery", "backbone", "moment"], function(_, $, Backbone, Moment) {
+	Moment.lang("de");
 	function readCookie(name) {
 	    var nameEQ = name + "=";
 	    var ca = document.cookie.split(';');
@@ -43,6 +60,11 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 		}
 	});
 
+	var Workspaces = Backbone.Collection.extend({
+		model: Workspace,
+		url: "/app/api/workspaces.php"
+	});
+
 	var WorkspacePageView = Backbone.View.extend({
 		el: "#template-wrapper",
 		render: function(options) {
@@ -55,6 +77,23 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 					var template = _.template($("#workspace-template").html(), {
 						Ideas: Json.Ideas,
 						Workspace: Json.Workspace
+					});
+					that.$el.html(template);
+				}
+			});
+		}
+	});
+
+	var SidebarWorkspacesView = Backbone.View.extend({
+		el: "#sidebar-workspaces",
+		render: function(options) {
+			var that = this;
+			var workspaces = new Workspaces();
+			workspaces.fetch({
+				success: function(Json) {
+					Json = Json.toJSON();
+					var template = _.template($("#sidebar-workspaces-template").html(), {
+						Workspaces: Json
 					});
 					that.$el.html(template);
 				}
@@ -123,5 +162,8 @@ require(["underscore", "jquery", "backbone"], function(_, $, Backbone) {
 	router.on("route:idea",  function(iid) { ideapageview.render({iid: iid}); });
 
 	Backbone.history.start();
+
+	var sidebarworkspaces = new SidebarWorkspacesView();
+		sidebarworkspaces.render();
 
 });

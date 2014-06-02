@@ -19,9 +19,8 @@
 			<div class="sidebar-profile clearfix">
 				<div class="profile-image"></div>
 				<div class="profile-name">Lorem Ipsum</div>
-
-
 			</div>
+			<div id="sidebar-workspaces"></div>
 			<footer>
 				<ul>
 					<li><a href="/?page=logout">Logout</a></li>

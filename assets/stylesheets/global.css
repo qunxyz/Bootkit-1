@@ -1,11 +1,9 @@
 body {
 	font-family: "Open Sans", "Arial";
 	font-size: 14px;
-	background: #eee;
 }
 
 #template-wrapper {
-	width: 1000px;
 	padding-left: 300px;
 	margin: 0 auto;
 
@@ -14,4 +12,6 @@ body {
 .wrapper {
 	background: #fff;
 	padding: 20px;
+	border-top: solid 5px #2AA876;
+	margin-top: 30px;
 }

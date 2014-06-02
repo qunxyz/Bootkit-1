@@ -1,0 +1,29 @@
+body {
+
+}
+
+h1 {
+	font-size: 18px;
+	margin: 0px;
+}
+
+#embed-header {
+	background: #2AA876;
+	color: white;
+	padding: 20px;
+}
+
+#embed-layer {
+	padding: 20px;
+}
+
+#embed-layer .title {
+	width: 100%;
+	padding: 5px 7px;
+}
+
+#embed-layer .description {
+	width: 100%;
+	padding: 5px 7px;
+	margin-top: 10px;
+}

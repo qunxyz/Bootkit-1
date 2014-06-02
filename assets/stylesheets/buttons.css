@@ -5,6 +5,7 @@
 	border-radius: 5px;
 	border: solid 1px #ddd;
 	background-color: #eeeeee;
+	font-weight: bold;
 	background-image: -moz-linear-gradient(#fcfcfc, #eee);
 	background-image: -webkit-linear-gradient(#fcfcfc, #eee);
 	background-image: linear-gradient(#fcfcfc, #eee);

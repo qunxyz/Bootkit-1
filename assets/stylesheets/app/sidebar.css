@@ -1,3 +1,18 @@
+#sidebar-workspaces a {
+	color: #fff;
+}
+
+#sidebar-workspaces ul {
+	padding: 20px;
+}
+
+#sidebar-workspaces .workspace {
+	padding: 8px 10px;
+	border-bottom: solid 1px #666;
+	background: #444;
+	margin-bottom: 5px;
+}
+
 #sidebar {
 	position: fixed;
 	width: 300px;
@@ -17,6 +32,7 @@
 
 #sidebar .sidebar-profile {
 	padding: 20px;
+	border-bottom: solid 2px #555;
 }
 
 #sidebar .profile-name {

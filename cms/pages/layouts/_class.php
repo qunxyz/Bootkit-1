@@ -34,6 +34,7 @@
 		<meta name="description" content="<?php echo Meta::$Description; ?>">
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+		
 		<link rel="stylesheet" type="text/css" href="assets/stylesheets/global.css">
 
 		<script type="text/javascript" src="assets/javascripts/vendor/require-2.1.11.min.js"></script>
@@ -44,7 +45,8 @@
 			    	underscore: "vendor/underscore-1.6.0.min",
 			        jquery:     "vendor/jquery-2.1.1.min",
 			        bootstrap:  "vendor/bootstrap-3.1.1.min",
-			        backbone:   "vendor/backbone-1.1.2.min"
+			        backbone:   "vendor/backbone-1.1.2.min",
+			        moment: 	"vendor/moment-2.5.0.min"
 			    },
 				shim: {
 					"bootstrap":  { deps: ["jquery"] },

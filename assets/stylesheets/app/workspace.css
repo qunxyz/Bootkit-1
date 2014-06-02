@@ -1,4 +1,51 @@
+#workspace-wrapper header {
+	height: 110px;
+	padding: 20px;
+}
+
 #workspace-wrapper header .title {
 	font-size: 24px;
 	margin: 0px;
+}
+
+#workspace-wrapper table {
+	border-top: solid 2px #ddd;
+}
+
+#workspace-wrapper table .title a {
+	color: #222;
+}
+
+#workspace-wrapper table th {
+	font-weight: bold;
+}
+
+#workspace-wrapper table th {
+	text-transform: uppercase;
+}
+#workspace-wrapper table td,
+#workspace-wrapper table th {
+	height: 45px;
+	vertical-align: middle;
+}
+
+
+#workspace-wrapper table th:first-child,
+#workspace-wrapper table td:first-child {
+	padding-left: 20px;
+	width: 1px;
+	white-space: nowrap;
+}
+
+#workspace-wrapper td .state {
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	border-radius: 50%;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+#workspace-wrapper .state.state-0 {
+	background: #2AA876;
 }

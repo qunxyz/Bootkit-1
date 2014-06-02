@@ -2,8 +2,20 @@
 
 class Workspace {
 
-	function __construct() {
+	public $Title = "";
 
+	function __construct($Id = null) {
+		if(isset($Id)) {
+
+			$Query = mysql_query("SELECT id, title FROM workspaces WHERE id = $Id") or die(mysql_error());
+			$AffectedRows = mysql_num_rows($Query);
+			if($AffectedRows == 1) {
+				$Sql = mysql_fetch_array($Query);
+				$this->Id 			= intval($Sql["id"]);
+				$this->Title 		= $Sql["title"];
+				mysql_free_result($Query);
+			}
+		}
 	}
 
 
